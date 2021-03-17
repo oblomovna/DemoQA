@@ -64,4 +64,23 @@ public class JSExecutor extends PageBase {
         System.out.println("URL --> " + text);
         return this;
     }
+    public JSExecutor typeAgeToSearchPanel(int age){
+        js.executeScript("document.getElementById('searchBox').value='"+ age +"';");
+        return this;
+    }
+    public JSExecutor showNameByAge(int age){
+        String name;
+        if(age==39){
+            name = "Vega";
+        }else if(age==45){
+            name = "Cantrell";
+        }else
+            name = "Gentry";
+        js.executeScript("alert('we found " + name + "')");
+        driver.switchTo().alert().accept();
+        return this;
+    }
+
+
+
 }
